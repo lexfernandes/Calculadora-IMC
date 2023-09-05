@@ -1,8 +1,9 @@
+
 export const Modal = {
   wrapper: document.querySelector(".modal-wrapper"),
   message: document.querySelector(".modal .title span"),
   buttonClose: document.querySelector(".modal button.close"),
-  //objeto lietrals objeto recebe uma função
+ 
   open() {
     Modal.wrapper.classList.add("open")
   },
@@ -10,6 +11,7 @@ export const Modal = {
     Modal.wrapper.classList.remove("open")
   },
 }
+
 Modal.buttonClose.onclick = () => {
   Modal.close()
 }

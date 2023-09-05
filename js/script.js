@@ -1,6 +1,7 @@
 import { Modal } from "./modal.js"
 import { AlertError } from "./alert-error.js"
-// variaveis - variables
+
+
 const form = document.querySelector("form")
 const inputWeight = document.querySelector("#weight")
 const inputHeight = document.querySelector("#height")
@@ -25,6 +26,7 @@ form.onsubmit = (event) => {
   const message = `Seu IMC é ${result}`
   Modal.message.innerText = message
 }
+
 function notNumber(value) {
   return isNaN(value) || value == ""
 }
