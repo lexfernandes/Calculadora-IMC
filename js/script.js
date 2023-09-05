@@ -1,7 +1,6 @@
 import { Modal } from "./modal.js"
 import { AlertError } from "./alert-error.js"
-import {IMC, notNumber} from "./utils.js"
-
+import {calculateIMC, notNumber} from "./utils.js"
 
 const form = document.querySelector("form")
 const inputWeight = document.querySelector("#weight")
@@ -14,19 +13,19 @@ form.onsubmit = (event) => {
   const height = inputHeight.value
 
   // só vai executar o programa caso os dois sejam falsos
-  const showAlertError = notNumber(weight) || notNumber(height)
+  const weightOrHeightIsNotANumber = notNumber(weight) || notNumber(height)
 
-  if (showAlertError) {
+  if (weightOrHeightIsNotANumber) {
     AlertError.open()
-    return
+    return;
   }
 
   AlertError.close()
 
-  const result = IMC(weight, height)
+  const result = calculateIMC(weight, height)
 
   Modal.open()
   const message = `Seu IMC é ${result}`
   Modal.message.innerText = message
 }
-// isNaN não é um número - 
+
